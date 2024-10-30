@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class DificultySelectorController : MonoBehaviour
 {
     [SerializeField] private GameObject buttonEasy;
@@ -12,16 +13,19 @@ public class DificultySelectorController : MonoBehaviour
     public void SelectEasy()
     {
         SelectDifficulty(SODiifficult.SelectDifficult.OnEasy);
+        SceneManager.LoadScene("Game");
     }
 
     public void SelectNormal()
     {
         SelectDifficulty(SODiifficult.SelectDifficult.OnNormal);
+        SceneManager.LoadScene("Game");
     }
 
     public void SelectHard()
     {
         SelectDifficulty(SODiifficult.SelectDifficult.OnHard);
+        SceneManager.LoadScene("Game");
     }
 
     private void SelectDifficulty(SODiifficult.SelectDifficult difficulty)
