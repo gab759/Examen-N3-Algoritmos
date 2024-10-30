@@ -8,6 +8,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject game;
     [SerializeField] private GameObject options;
     [SerializeField] private GameObject credits;
+    [SerializeField] private Animator animDifficult;
+    [SerializeField] private Animator optionsAnim;
     
     private void Awake()
     {
@@ -23,18 +25,23 @@ public class MenuManager : MonoBehaviour
     public void ActiveGameWindow()
     {
         game.SetActive(true);
+        animDifficult.SetBool("isActive", true);
     }
     public void DisableGameWindow()
     {
         game.SetActive(false);
+        Debug.Log("Se apago");
+        animDifficult.SetBool("isActive", false);
     }
     public void ActiveOptionsWindow()
     {
         options.SetActive(true);
+        optionsAnim.SetBool("isOptions", true);
     }
     public void DisableOptionsWindow()
     {
         options.SetActive(false);
+        optionsAnim.SetBool("isOptions", false);
     }
     public void ActiveCreditsWindow()
     {
@@ -47,5 +54,10 @@ public class MenuManager : MonoBehaviour
    public void ChangeScene(string Wazaaa)
     {
         SceneManager.LoadScene(Wazaaa);
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("Saliendo");
     }
 }
